@@ -25,15 +25,15 @@
             set => _op = value;
         }
 
-        private int _num1 = int.MinValue;
-        public int Num1
+        private double _num1 = double.MinValue;
+        public double Num1
         {
             get => _num1;
             set => _num1 = value; 
         }
 
-        private int _num2 = int.MinValue;
-        public int Num2
+        private double _num2 = double.MinValue;
+        public double Num2
         {
             get => _num2;
             set => _num2 = value;
@@ -72,30 +72,30 @@
         public void Reset()
         {
             Op = string.Empty;
-            Num1 = int.MinValue;
-            Num2 = int.MinValue;
+            Num1 = double.MinValue;
+            Num2 = double.MinValue;
         }
 
         public bool Ready()
         {
-            return (Op != string.Empty && Num1 != int.MinValue && Num2 != int.MinValue);
+            return (Op != string.Empty && Num1 != double.MinValue && Num2 != double.MinValue);
         }
 
         private string Add()
         {
-            int result = Num1 + Num2;
+            double result = Math.Round(Num1 + Num2, 2);
             return $"{Num1} + {Num2} = {result}";
         }
 
         private string Subtract()
         {
-            int result = Num1 - Num2;
+            double result = Math.Round(Num1 - Num2, 2);
             return $"{Num1} - {Num2} = {result}";
         }
 
         private string Multiply()
         {
-            int result = Num1 * Num2;
+            double result = Math.Round(Num1 * Num2, 2);
             return $"{Num1} x {Num2} = {result}";
         }
 
@@ -103,7 +103,7 @@
         {
             try
             {
-                int result = Num1 / Num2;
+                double result = Math.Round(Num1 / Num2, 2);
                 return $"{Num1} / {Num2} = {result}";
             } 
             catch (DivideByZeroException)
@@ -116,7 +116,7 @@
         {
             try
             {
-                int result = Num1 % Num2;
+                double result = Math.Round(Num1 % Num2, 2);
                 return $"{Num1} % {Num2} = {result}";
             }
             catch (DivideByZeroException)
@@ -149,12 +149,12 @@
 
                     if (prompt == "First number" && IsNumber(input))
                     {
-                        Calc.Num1 = Int32.Parse(input);
+                        Calc.Num1 = double.Parse(input);
                     }
 
                     else if (prompt == "Second number" && IsNumber(input))
                     {
-                        Calc.Num2 = Int32.Parse(input);
+                        Calc.Num2 = double.Parse(input);
                     }
 
                     else if (prompt == "Operator" && IsOperator(input))
@@ -252,7 +252,7 @@
 
         private bool IsNumber(string input)
         {   
-            return int.TryParse(input, out _);
+            return double.TryParse(input, out _);
         }
 
         private bool IsOperator(string input)
