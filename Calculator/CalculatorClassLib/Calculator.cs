@@ -103,6 +103,11 @@
         {
             try
             {
+                if (Num2 == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+
                 double result = Math.Round(Num1 / Num2, 2);
                 return $"{Num1} / {Num2} = {result}";
             } 
@@ -116,6 +121,11 @@
         {
             try
             {
+                if (Num2 == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+
                 double result = Math.Round(Num1 % Num2, 2);
                 return $"{Num1} % {Num2} = {result}";
             }
