@@ -25,14 +25,14 @@
             set => _op = value;
         }
 
-        private double _num1 = double.MinValue;
+        private double _num1 = double.NaN;
         public double Num1
         {
             get => _num1;
             set => _num1 = value; 
         }
 
-        private double _num2 = double.MinValue;
+        private double _num2 = double.NaN;
         public double Num2
         {
             get => _num2;
@@ -72,13 +72,13 @@
         public void Reset()
         {
             Op = string.Empty;
-            Num1 = double.MinValue;
-            Num2 = double.MinValue;
+            Num1 = double.NaN;
+            Num2 = double.NaN;
         }
 
         public bool Ready()
         {
-            return (Op != string.Empty && Num1 != double.MinValue && Num2 != double.MinValue);
+            return (Op != string.Empty && !double.IsNaN(Num1) && !double.IsNaN(Num2));
         }
 
         private string Add()
