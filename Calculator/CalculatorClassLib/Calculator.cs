@@ -4,40 +4,23 @@
     {
         public Calculator()
         {
-            Operators.Add("add", "+");
-            Operators.Add("subtract", "-");
-            Operators.Add("multiply", "*");
-            Operators.Add("divide", "/");
-            Operators.Add("remainder", "%");
+
         }
 
-        private Dictionary<string, string> _operators = new Dictionary<string, string>();
-        public Dictionary<string, string> Operators
+        public Dictionary<string, string> Operators { get; private set; } = new Dictionary<string, string>()
         {
-            get => _operators;
-            private set => _operators = value;
-        }
+            {"add", "+"},
+            {"subtract", "-"},
+            {"multiply", "*"},
+            {"divide", "/"},
+            {"remainder", "%"},
+        };
 
-        private string _op = string.Empty;
-        public string Op
-        {
-            get => _op;
-            set => _op = value;
-        }
+        public string Op { get; set; } = string.Empty;
 
-        private double _num1 = double.NaN;
-        public double Num1
-        {
-            get => _num1;
-            set => _num1 = value; 
-        }
+        public double Num1 { get; set; } = double.NaN;
 
-        private double _num2 = double.NaN;
-        public double Num2
-        {
-            get => _num2;
-            set => _num2 = value;
-        }
+        public double Num2 { get; set; } = double.NaN;
 
         public string Calculate()
         {
