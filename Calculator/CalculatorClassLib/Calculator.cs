@@ -24,10 +24,9 @@
 
         public string Calculate()
         {
-            string operation = Op;
-            string result = "";
+            string result;
 
-            switch (operation)
+            switch (Op)
             {
                 case "+":
                     result = Add();
@@ -45,7 +44,7 @@
                     result = Remainder();
                     break;
                 default:
-                    result = $"Invalid operation: {operation}";
+                    result = $"Invalid operation: {Op}";
                     break;
             }
 
